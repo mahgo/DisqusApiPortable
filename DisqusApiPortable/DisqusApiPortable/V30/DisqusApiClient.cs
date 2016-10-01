@@ -24,6 +24,12 @@ namespace Disqus.Api.V30
             this._dsqHttpClient = new DsqHttpClient(DsqHttpClient.GetHandler(), referrer);
         }
 
+        public DisqusApiClient(DsqAuth auth)
+        {
+            this.DisqusAuthentication = auth;
+            this._dsqHttpClient = new DsqHttpClient(DsqHttpClient.GetHandler());
+        }
+
         protected DsqHttpClient _dsqHttpClient;
 
         public DsqAuth DisqusAuthentication { get; set; }

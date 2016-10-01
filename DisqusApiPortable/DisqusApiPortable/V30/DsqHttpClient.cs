@@ -31,6 +31,12 @@ namespace Disqus.Api.V30
             this.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        public DsqHttpClient(HttpMessageHandler handler) : base(handler)
+        {
+            this.DefaultRequestHeaders.Add("User-Agent", String.Format("Disqus SDK for .NET"));
+            this.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
         /// <summary>
         /// Gets data from Disqus API
         /// </summary>
